@@ -1,37 +1,120 @@
-export const navbarData = [
+import { INavbarData } from "./helper";
+
+export const navbarData: INavbarData[] = [
     {
-        routerLink: 'dashboard',
+        routeLink: 'dashboard',
         icon: 'fal fa-home',
         label: 'Dashboard'
     },
     {
-        routerLink: 'products',
-        icon: 'fal fa-box-open',
-        label: 'Products'
+        routeLink: 'products',
+        icon: 'fal fa-product-hunt',
+        label: 'Products',
+        items: [
+            {
+                routeLink: 'products/level1.1',
+                label: 'View Products',
+                items: [
+                    {
+                        routeLink: 'products/level2.1',
+                        label: 'Level 2.1',
+                    },
+                    {
+                        routeLink: 'products/level2.2',
+                        label: 'Level 2.2',
+                        items: [
+                            {
+                                routeLink: 'products/level3.1',
+                                label: 'Level 3.1'
+                            },
+                            {
+                                routeLink: 'products/level3.2',
+                                label: 'Level 3.2'
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                routeLink: 'products/level1.2',
+                label: 'Add Product',
+            },
+            {
+                routeLink: 'products/level1.2',
+                label: 'Manage Stock',
+            },
+            {
+                routeLink: 'products/level1.2',
+                label: 'Level 1.2',
+            }
+        ]
     },
     {
-        routerLink: 'statistics',
+        routeLink: 'orders',
+        icon: 'fal fa-orders',
+        label: 'Orders'
+    },
+    {
+        routeLink: 'reports',
+        icon: 'fal fa-file',
+        label: 'Reports'
+    },
+    {
+        routeLink: 'clients',
+        icon: 'fal fa-client',
+        label: 'Clients'
+    },
+    {
+        routeLink: 'statistics',
         icon: 'fal fa-chart-bar',
         label: 'Statistics'
     },
     {
-        routerLink: 'coupens',
+        routeLink: 'coupens',
         icon: 'fal fa-tags',
-        label: 'Coupens'
+        label: 'Coupens',
+        items: [
+            {
+                routeLink: 'coupens/list',
+                label: 'List Coupens'
+            },
+            {
+                routeLink: 'coupens/create',
+                label: 'Create Coupens'
+            }
+        ]
     },
     {
-        routerLink: 'pages',
+        routeLink: 'pages',
         icon: 'fal fa-file',
         label: 'Pages'
     },
     {
-        routerLink: 'media',
+        routeLink: 'media',
         icon: 'fal fa-camera',
         label: 'Media'
     },
     {
-        routerLink: 'settings',
+        routeLink: 'settings',
         icon: 'fal fa-cog',
-        label: 'Settings'
+        label: 'Settings',
+        expanded: true,
+        items: [
+            {
+                routeLink: 'settings/profile',
+                label: 'Profile'
+            },
+            {
+                routeLink: 'settings/customize',
+                label: 'Customize'
+            }
+            ,
+            {
+                routeLink: 'settings/Logout',
+                label: 'Logout'
+            }
+        ]
     },
+
+
 ];
