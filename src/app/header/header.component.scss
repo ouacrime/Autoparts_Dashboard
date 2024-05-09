@@ -1,0 +1,21 @@
+.head {
+    width: calc(100% - 5rem);
+    margin-left: 5rem;
+    z-index: 1;
+    transition: all .5s ease;
+    background: #f4f7fa;
+    padding: 1rem 1.5rem 0 1.5rem;
+    position: fixed;
+    top: 0;
+}
+
+.head-trimmed{
+    width: calc(100% - 16.5652rem);
+    margin-left: 16.5625;
+
+}
+.head-md-screen{
+    width: calc(100% - 5rem);
+    margin-left: 5rem;
+
+}
