@@ -7,62 +7,34 @@ export const navbarData: INavbarData[] = [
         label: 'Dashboard'
     },
     {
+        routeLink: 'clients',
+        icon: 'fal fa-users',
+        label: 'Clients'
+    },
+    {
         routeLink: 'products',
-        icon: 'fal fa-product-hunt',
+        icon: 'fal fa-box-open',
         label: 'Products',
         items: [
             {
-                routeLink: 'products/level1.1',
-                label: 'View Products',
-                items: [
-                    {
-                        routeLink: 'products/level2.1',
-                        label: 'Level 2.1',
-                    },
-                    {
-                        routeLink: 'products/level2.2',
-                        label: 'Level 2.2',
-                        items: [
-                            {
-                                routeLink: 'products/level3.1',
-                                label: 'Level 3.1'
-                            },
-                            {
-                                routeLink: 'products/level3.2',
-                                label: 'Level 3.2'
-                            }
-                        ]
-                    }
-                ]
+                routeLink: 'products/list-products',
+                label: 'List Products',
             },
             {
-                routeLink: 'products/level1.2',
-                label: 'Add Product',
-            },
-            {
-                routeLink: 'products/level1.2',
-                label: 'Manage Stock',
-            },
-            {
-                routeLink: 'products/level1.2',
-                label: 'Level 1.2',
+                routeLink: 'products/stock-products',
+                label: 'Stock Management',
             }
         ]
     },
     {
         routeLink: 'orders',
-        icon: 'fal fa-orders',
+        icon: 'fal fa-plus',
         label: 'Orders'
     },
     {
-        routeLink: 'reports',
-        icon: 'fal fa-file',
-        label: 'Reports'
-    },
-    {
-        routeLink: 'clients',
-        icon: 'fal fa-client',
-        label: 'Clients'
+        routeLink: 'invoices',
+        icon: 'fal fa-file-invoice-dollar',
+        label: 'Invoices'
     },
     {
         routeLink: 'statistics',
@@ -70,29 +42,9 @@ export const navbarData: INavbarData[] = [
         label: 'Statistics'
     },
     {
-        routeLink: 'coupens',
-        icon: 'fal fa-tags',
-        label: 'Coupens',
-        items: [
-            {
-                routeLink: 'coupens/list',
-                label: 'List Coupens'
-            },
-            {
-                routeLink: 'coupens/create',
-                label: 'Create Coupens'
-            }
-        ]
-    },
-    {
-        routeLink: 'pages',
-        icon: 'fal fa-file',
-        label: 'Pages'
-    },
-    {
-        routeLink: 'media',
-        icon: 'fal fa-camera',
-        label: 'Media'
+        routeLink: 'suppliers',
+        icon: 'fal fa-user-tag',
+        label: 'Supplier'
     },
     {
         routeLink: 'settings',
@@ -107,11 +59,6 @@ export const navbarData: INavbarData[] = [
             {
                 routeLink: 'settings/customize',
                 label: 'Customize'
-            }
-            ,
-            {
-                routeLink: 'settings/Logout',
-                label: 'Logout'
             }
         ]
     },

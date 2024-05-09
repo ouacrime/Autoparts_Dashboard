@@ -9,14 +9,12 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProductsComponent } from './products/products.component';
 import { StatisticsComponent } from './statistics/statistics.component';
-import { PagesComponent } from './pages/pages.component';
-import { MediaComponent } from './media/media.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SublevelMenuComponent } from './sidenav/sublevel-menu.component';
 import { ClientsComponent } from './clients/clients.component';
 import { OrdersComponent } from './orders/orders.component';
-import { BillingComponent } from './billing/billing.component';
-import { ReportsComponent } from './reports/reports.component';
+import { InvoicesComponent } from './invoices/invoices.component';
+import { SuppliersComponent } from './suppliers/suppliers.component';
 
 @NgModule({
   declarations: [
@@ -24,16 +22,13 @@ import { ReportsComponent } from './reports/reports.component';
     BodyComponent,
     SidenavComponent,
     DashboardComponent,
-    ProductsComponent,
     StatisticsComponent,
-    PagesComponent,
-    MediaComponent,
     SettingsComponent,
     SublevelMenuComponent,
     ClientsComponent,
     OrdersComponent,
-    BillingComponent,
-    ReportsComponent
+    InvoicesComponent,
+    SuppliersComponent
   ],
   imports: [
     BrowserModule,
