@@ -1,8 +1,9 @@
 import { animate, keyframes, style, transition, trigger } from '@angular/animations';
-import { Component, Output, EventEmitter, OnInit, HostListener } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit, HostListener, Inject, PLATFORM_ID } from '@angular/core';
 import { Router } from '@angular/router';
 import { fadeInOut, INavbarData } from './helper';
 import { navbarData } from './nav-data';
+import { isPlatformBrowser } from '@angular/common';
 
 interface SideNavToggle {
   screenWidth: number;
@@ -44,11 +45,18 @@ export class SidenavComponent implements OnInit {
     }
   }
 
-  constructor(public router: Router) {}
+
+  constructor(
+    private router: Router,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) { }
 
   ngOnInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
       this.screenWidth = window.innerWidth;
+    }
   }
+
 
   toggleCollapse(): void {
     this.collapsed = !this.collapsed;
