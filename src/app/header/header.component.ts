@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -9,9 +10,25 @@ export class HeaderComponent implements OnInit {
     @Input() collapsed = false;
     @Input() screenWidth = 0;
 
+    canShowSearchAsOverlay = false;
+
+
     constructor() {} 
 
-    ngOnInit(): void {}
+    @HostListener('window:resize', ['$event'])
+    onResize(event: any) {
+      this.checkCanShowSearchAsOverlay(window.innerWidth);
+    }
+
+    ngOnInit(): void {
+      if (isPlatformBrowser(this.platformId)) {
+        this.checkCanShowSearchAsOverlay(window.innerWidth);
+      }
+      
+    }
+  platformId(platformId: any) {
+    throw new Error('Method not implemented.');
+  }
   
     getHeadeClass(): string 
     {
@@ -23,6 +40,15 @@ export class HeaderComponent implements OnInit {
         styleClass = 'head-md-screen';
       }
       return styleClass;
+    }
+
+    checkCanShowSearchAsOverlay(innerWidth: number): void {
+      if (innerWidth < 768) {
+        this.canShowSearchAsOverlay = true;
+      }
+      else {
+        this.canShowSearchAsOverlay = false;
+      }
     }
 
 

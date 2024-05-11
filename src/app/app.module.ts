@@ -17,6 +17,10 @@ import { InvoicesComponent } from './invoices/invoices.component';
 import { SuppliersComponent } from './suppliers/suppliers.component';
 import { HeaderComponent } from './header/header.component';
 
+import { OverlayModule } from '@angular/cdk/overlay';
+import { CdkMenuModule } from '@angular/cdk/menu';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +39,9 @@ import { HeaderComponent } from './header/header.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    OverlayModule,
+    CdkMenuModule
   ],
   providers: [
     provideClientHydration()
