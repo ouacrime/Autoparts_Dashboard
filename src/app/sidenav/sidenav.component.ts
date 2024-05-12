@@ -3,6 +3,7 @@ import { Component, Output, EventEmitter, OnInit, HostListener, Inject, PLATFORM
 import { Router } from '@angular/router';
 import { fadeInOut, INavbarData } from './helper';
 import { navbarData } from './nav-data';
+import { isPlatformBrowser } from '@angular/common';
 
 interface SideNavToggle {
   screenWidth: number;
@@ -47,11 +48,14 @@ export class SidenavComponent implements OnInit {
 
   constructor(
     private router: Router,
-    
+    @Inject(PLATFORM_ID) private platformId: Object
   ) { }
 
   ngOnInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      // Only execute this code in the browser
       this.screenWidth = window.innerWidth;
+    }
   }
 
 

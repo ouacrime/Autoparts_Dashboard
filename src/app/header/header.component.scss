@@ -223,23 +223,25 @@
 .overlay-language{
 
     padding: 0.5rem 0;
-    li{
-        padding: 0.35rem 1.5rem;
-        font-size: 14px;
-        font-weight: 400;
-        color: #495057;
-        cursor: pointer;
-
-        img{
-            margin-right: 0.6rem;
-            height: 12px;
+    ul{
+        list-style: none;
+        width: 10rem;
+        li{
+            padding: 0.35rem 1.5rem;
+            font-size: 14px;
+            font-weight: 400;
+            color: #495057;
+            cursor: pointer;
+    
+            img{
+                margin-right: 0.6rem;
+                height: 12px;
+            }
+        }
+        li:hover{
+            background: #eff2f3;
         }
     }
-
-    li:hover{
-        background: #eff2f3;
-    }
-
 }
 
 .overlay-notification{
@@ -300,8 +302,8 @@
 }
 
 .overlay-user {
+    padding: 0.5rem 0;
     ul {
-        padding: 0.5rem 0rem;
         list-style: none;
         width: 10rem;
 

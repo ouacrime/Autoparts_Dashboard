@@ -17,7 +17,7 @@
             <div class="head-menu">
                 <div class="head-menu-item">
                     <button class="head-menu-item-btn ripple" [cdkMenuTriggerFor]="languageOverlay">
-                        <img [src]="'../../assets/flags/' + selectedLanguage.flag + '.jpg'" class="flag" alt="flag">
+                        <img *ngIf="selectedLanguage" [src]="'assets/flags/' + selectedLanguage.flag  + '.jpg'" class="flag" alt="flag">
                     </button>
                 </div>
                 <div class="head-menu-item">
@@ -62,7 +62,7 @@
     <div class="overlay overlay-language overlay-fall" cdkMenu>
         <ul>
             <li *ngFor="let lang of languages" cdkMenuItem>
-                <img [src]="'../../assets/flags/' + lang.flag + '.jpg'" alt="flag">
+                <img [src]="'assets/flags/' + lang.flag + '.jpg'" alt="flag">
                 <span>{{lang.language}}</span>
             </li>
         </ul>
@@ -101,7 +101,7 @@
     <div class="overlay overlay-user overlay-fall" cdkMenu>
         <ul>
             <li *ngFor="let item of userItems" cdkMenuItem>
-                <a href="">
+                <a>
                     <i class="icon" [ngClass]="item.icon"></i>
                     <span>{{item.label}}</span>
                 </a>

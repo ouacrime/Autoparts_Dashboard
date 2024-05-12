@@ -1,5 +1,6 @@
-import { Component, HostListener, Input, OnInit } from '@angular/core';
+import { Component, HostListener, Inject, Input, OnInit, PLATFORM_ID } from '@angular/core';
 import { languages, notifications, userItems } from './header-dummy-data';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -18,8 +19,11 @@ export class HeaderComponent implements OnInit {
     notifications = notifications;
     userItems = userItems;
 
+    
 
-    constructor() {} 
+    constructor(
+      @Inject(PLATFORM_ID) private platformId: Object
+    ) { }
 
     @HostListener('window:resize', ['$event'])
     onResize(event: any) {
@@ -27,16 +31,20 @@ export class HeaderComponent implements OnInit {
     }
 
     ngOnInit(): void {
+      if (isPlatformBrowser(this.platformId)) {
+          // Only execute this code in the browser
+          this.checkCanShowSearchAsOverlay(window.innerWidth);
+
+      }
       
-      this.checkCanShowSearchAsOverlay(window.innerWidth);
       this.selectedLanguage = this.languages[0];
+
+
+      if (!this.selectedLanguage) {
+        this.selectedLanguage = { flag: 'france' };}
 
     }
     
-    platformId(platformId: any) {
-      throw new Error('Method not implemented.');
-    }
-  
     getHeadeClass(): string 
     {
       let styleClass = '';
