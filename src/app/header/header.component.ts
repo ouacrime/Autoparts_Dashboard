@@ -1,5 +1,5 @@
-import { isPlatformBrowser } from '@angular/common';
 import { Component, HostListener, Input, OnInit } from '@angular/core';
+import { languages, notifications, userItems } from './header-dummy-data';
 
 @Component({
   selector: 'app-header',
@@ -11,6 +11,12 @@ export class HeaderComponent implements OnInit {
     @Input() screenWidth = 0;
 
     canShowSearchAsOverlay = false;
+    selectedLanguage:any;
+
+
+    languages = languages;
+    notifications = notifications;
+    userItems = userItems;
 
 
     constructor() {} 
@@ -21,19 +27,19 @@ export class HeaderComponent implements OnInit {
     }
 
     ngOnInit(): void {
-      if (isPlatformBrowser(this.platformId)) {
-        this.checkCanShowSearchAsOverlay(window.innerWidth);
-      }
       
+      this.checkCanShowSearchAsOverlay(window.innerWidth);
+      this.selectedLanguage = this.languages[0];
+
     }
-  platformId(platformId: any) {
-    throw new Error('Method not implemented.');
-  }
+    
+    platformId(platformId: any) {
+      throw new Error('Method not implemented.');
+    }
   
     getHeadeClass(): string 
     {
       let styleClass = '';
-
       if (this.collapsed && this.screenWidth > 768) {
         styleClass = 'head-trimmed';
       } else {

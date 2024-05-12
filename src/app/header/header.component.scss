@@ -180,7 +180,7 @@
 .overlay{
     background: #fff;
     margin-top: 10px;
-    box-shadow: 0 1rem 3rem rgb(0 0 0 / 18%);
+    box-shadow: 0 1rem 3rem rgb(0 0 0 / 13%);
     border-radius: 0.25rem;
 
 }
@@ -217,5 +217,107 @@
         padding: 0.47rem 0.75rem;
         border-radius: 0.25rem;
 
+    }
+}
+
+.overlay-language{
+
+    padding: 0.5rem 0;
+    li{
+        padding: 0.35rem 1.5rem;
+        font-size: 14px;
+        font-weight: 400;
+        color: #495057;
+        cursor: pointer;
+
+        img{
+            margin-right: 0.6rem;
+            height: 12px;
+        }
+    }
+
+    li:hover{
+        background: #eff2f3;
+    }
+
+}
+
+.overlay-notification{
+    ul{
+        list-style: none;
+        width: 320px;
+
+        li{
+            padding: 1rem;
+
+            &.notification-head-container {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .notifaction-head {
+                    font-size: 15px;
+                    color: #495057;
+                }
+
+                .view-all-link {
+                    font-size: 80%;
+                    color: #699dfa;
+                    cursor: pointer;
+                }
+            }
+
+            &.notification-message-container
+            {
+                cursor: pointer;
+                display: flex;
+
+                i{
+                    margin-right: 15px;
+                    font-size: 20px;
+                    color: #699dfa;
+                    width: 25px;
+                    text-align: center;
+                }
+                .notifaction-subject {
+                    margin-bottom: 0.25rem;
+                    font-size: 15px;
+                    color: #495057;
+                }
+                .notifaction-desc {
+                    font-size: 12px;
+                    color: #47788d;
+                }
+
+                &:hover {
+                    background: #eff2f3;
+                }
+
+
+            }
+        }
+    }
+}
+
+.overlay-user {
+    ul {
+        padding: 0.5rem 0rem;
+        list-style: none;
+        width: 10rem;
+
+        li{
+            padding: 0.35rem 1.5rem;
+            font-size: 14px;
+            font-weight: 400;
+            color: #495057;
+            cursor: pointer;
+
+            .icon{
+                margin-left: 0.6rem;
+            }
+        }
+        li:hover{
+            background: #eff2f3;
+        }
     }
 }
