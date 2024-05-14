@@ -7,3 +7,10 @@
     padding: 0;
     box-sizing: border-box;
 }
+.modal-backdrop {
+    /* bug fix - no overlay */    
+    display: none;    
+}
+.modal-content{
+    margin-top: 90px;
+}
