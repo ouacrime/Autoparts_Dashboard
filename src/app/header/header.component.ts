@@ -41,7 +41,7 @@ export class HeaderComponent implements OnInit {
 
 
       if (!this.selectedLanguage) {
-        this.selectedLanguage = { flag: 'france' };}
+        this.selectedLanguage = { flag: 'morocco' };}
 
     }
     

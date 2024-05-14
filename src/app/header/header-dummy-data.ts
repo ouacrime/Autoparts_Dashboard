@@ -1,6 +1,10 @@
 export const languages = [
 
     {
+        language: 'Maroc',
+        flag:'morocco'
+    },
+    {
         language: 'English',
         flag:'us'
     },
