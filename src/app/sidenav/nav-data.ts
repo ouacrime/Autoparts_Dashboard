@@ -9,7 +9,17 @@ export const navbarData: INavbarData[] = [
     {
         routeLink: 'clients',
         icon: 'fal fa-users',
-        label: 'Clients'
+        label: 'Clients',
+        items: [
+            {
+                routeLink: 'clients/list-clients',
+                label: 'Clients',
+            },
+            {
+                routeLink: 'clients/add-client',
+                label: 'New Client',
+            }
+        ]
     },
     {
         routeLink: 'products',

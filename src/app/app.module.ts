@@ -22,6 +22,19 @@ import { HeaderComponent } from './header/header.component';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { CdkMenuModule } from '@angular/cdk/menu';
 import { FormsModule } from '@angular/forms';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { ListClientsComponent } from './clients/list-clients/list-clients.component';
+import { AddClientComponent } from './clients/add-client/add-client.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatTableModule} from '@angular/material/table';
+
+
+
+
 
 
 
@@ -38,7 +51,9 @@ import { FormsModule } from '@angular/forms';
     OrdersComponent,
     InvoicesComponent,
     SuppliersComponent,
-    HeaderComponent
+    HeaderComponent,
+    ListClientsComponent,
+    AddClientComponent
   ],
   imports: [
     BrowserModule,
@@ -48,10 +63,17 @@ import { FormsModule } from '@angular/forms';
     CdkMenuModule,
     FormsModule,
     HttpClientModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    MatButtonModule,
+    MatDividerModule,
+    MatTableModule,
+
   ],
   providers: [
     provideClientHydration(),    
-    provideHttpClient(withFetch()), // Add this line to enable fetch
+    provideHttpClient(withFetch()), provideAnimationsAsync(), // Add this line to enable fetch
 
   ],
   bootstrap: [AppComponent]

@@ -4,15 +4,17 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { SettingsComponent } from './settings/settings.component';
 import { OrdersComponent } from './orders/orders.component';
-import { ClientsComponent } from './clients/clients.component';
 import { InvoicesComponent } from './invoices/invoices.component';
 import { SuppliersComponent } from './suppliers/suppliers.component';
+
 
 const routes: Routes = [
 
   {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
   {path: 'dashboard', component: DashboardComponent},
-  {path: 'clients', component: ClientsComponent},
+  {
+    path: 'clients',
+    loadChildren: () => import('./clients/clients.module').then(m => m.ClientsModule)  },
   {
     path: 'products',
     loadChildren: () => import('./products/products.module').then(m => m.ProductsModule)
