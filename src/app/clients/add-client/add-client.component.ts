@@ -35,7 +35,7 @@ export class AddClientComponent implements OnInit {
       {
         next: (response : Client) =>{
           clientForm.reset();
-          this.router.navigate(["../list-clients"]);
+          this.router.navigate(["../list-clients"], { relativeTo: this.activatedRoute });
         },
         error: (error : HttpErrorResponse) =>{
           console.log(error);
