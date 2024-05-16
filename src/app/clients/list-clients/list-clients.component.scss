@@ -1,0 +1,19 @@
+.example-button-row .mat-mdc-button-base {
+    margin: 8px 8px 8px 0;
+  }
+  .saveClient{
+    text-align: center;
+  }
+  h5{
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #ffffff;
+    background: linear-gradient(45deg, #5083f4, #3746ef);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
