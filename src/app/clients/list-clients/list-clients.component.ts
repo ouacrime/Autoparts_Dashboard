@@ -44,17 +44,35 @@ export class ListClientsComponent implements OnInit {
   ngOnInit(): void {
     this.client = this.activateRoute.snapshot.data['cliente'];
     console.log(this.client);
-
+    this.client = {
+      id: null,
+      firstName: '',
+      lastName: '',
+      address: '',
+      phoneNumber: '',
+      username: ''
+    };
 
 
   }
+  addClient(): void {
+    this.isUpdateMode = false;
+  }
+
 
   updateClient(clientId: number): void {
     console.log(clientId);
     this.selectedClientId = clientId;
     // Set isUpdateMode flag to true
     this.isUpdateMode = true;
-
+    this.clientService.getClientById(clientId).subscribe({
+      next: (response: Client) => {
+        this.client = response;
+      },
+      error: (error: HttpErrorResponse) => {
+        console.log(error);
+      }
+    });
   }
 
   getClientsList(): void {
@@ -93,16 +111,6 @@ export class ListClientsComponent implements OnInit {
 
   }
 
-  call(client: Client) {
-    this.clientValue = client.firstName;
-    this.clientValue = client.lastName;
-    this.clientValue = client.address;
-    this.clientValue = client.username;
-    this.clientValue = client.phoneNumber;
-  }
-
-
-
   saveOrUpdateClient(clientForm: NgForm): void {
     if (this.isUpdateMode && this.selectedClientId) {
       console.log(this.selectedClientId);
@@ -117,7 +125,6 @@ export class ListClientsComponent implements OnInit {
         },
       });
     } else {
-      this.isUpdateMode = false;
       this.saveClient(clientForm);
     }
     clientForm.reset();

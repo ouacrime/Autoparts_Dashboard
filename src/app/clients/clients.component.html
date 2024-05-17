@@ -1,0 +1,184 @@
+<div class="container">
+    <div align="right" class="mb-3 example-button-row">
+      <button
+        mat-raised-button
+        class="btn btn-outline-primary"
+        data-bs-toggle="modal"
+        type="button"
+        data-bs-target="#exampleModal"
+        (click)="addClient()"
+      >
+        New Client
+      </button>
+  
+    </div>
+  
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+  
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.firstName }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef>Last Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.lastName }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="phoneNumber">
+        <th mat-header-cell *matHeaderCellDef>phoneNumber</th>
+        <td mat-cell *matCellDef="let element">{{ element.phoneNumber }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="username">
+        <th mat-header-cell *matHeaderCellDef>username</th>
+        <td mat-cell *matCellDef="let element">{{ element.username }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="statusName">
+        <th mat-header-cell *matHeaderCellDef>statusName</th>
+        <td mat-cell *matCellDef="let element">{{ element.statusName }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+          <button
+            mat-icon-button
+            color="warn"
+            aria-label="Example icon button with a delete icon"
+            (click)="deletClient(element.id)"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+          <button
+  
+              data-bs-toggle="modal"
+              type="button"
+              data-bs-target="#exampleModal"
+              mat-icon-button
+              color="primary"
+              aria-label="Example icon button with a updateClient icon"
+              (click)="updateClient(element.id)"
+          >
+            <mat-icon>edit</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">{{ isUpdateMode ? 'Update Client' : 'Add Client' }}</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="card p-5 mt-3">
+              <form #clientForm="ngForm" class="saveClient">
+                <mat-form-field appearance="outline">
+                  <mat-label>First name</mat-label>
+                  <input
+                    matInput
+                    placeholder="First name"
+                    name="firstName"
+                    [(ngModel)]="client.firstName"
+                  />
+                  <mat-icon matSuffix>person</mat-icon>
+                </mat-form-field>
+  
+                <mat-form-field appearance="outline">
+                  <mat-label>Last name</mat-label>
+                  <input
+                    matInput
+                    placeholder="Last name"
+                    name="lastName"
+                    [(ngModel)]="client.lastName"
+                  />
+                  <mat-icon matSuffix>person</mat-icon>
+                </mat-form-field>
+  
+                <mat-form-field appearance="outline">
+                  <mat-label>Address</mat-label>
+                  <input
+                    matInput
+                    placeholder="Address"
+                    name="address"
+                    [(ngModel)]="client.address"
+                  />
+                  <mat-icon matSuffix>apartment</mat-icon>
+                </mat-form-field>
+  
+                <mat-form-field appearance="outline">
+                  <mat-label>Phone Number</mat-label>
+                  <input
+                    matInput
+                    placeholder="Phone Number"
+                    name="phoneNumber"
+                    [(ngModel)]="client.phoneNumber"
+                  />
+                  <mat-icon matSuffix>phone_enabled</mat-icon>
+                </mat-form-field>
+  
+                <mat-form-field appearance="outline">
+                  <mat-label>Email</mat-label>
+                  <input
+                    matInput
+                    placeholder="Email"
+                    name="username"
+                    [(ngModel)]="client.username"
+                  />
+                  <mat-icon matSuffix>mail</mat-icon>
+                </mat-form-field>
+  
+                <mat-divider></mat-divider>
+  
+                <div class="text-center mt-3">
+                  <button
+                    mat-raised-button
+                    color="primary"
+                    class="btn btn-outline-success"
+                    type="button"
+                    data-bs-dismiss="modal"
+                    (click)="saveOrUpdateClient(clientForm)"
+                    
+                  >
+                  {{ isUpdateMode ? 'Update' : 'Save' }}
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
