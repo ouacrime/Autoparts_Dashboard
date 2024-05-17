@@ -18,19 +18,27 @@ import { OrdersComponent } from './orders/orders.component';
 import { InvoicesComponent } from './invoices/invoices.component';
 import { SuppliersComponent } from './suppliers/suppliers.component';
 import { HeaderComponent } from './header/header.component';
+import { ListClientsComponent } from './clients/list-clients/list-clients.component';
+import { AddClientComponent } from './clients/add-client/add-client.component';
+import { ProductsComponent } from './products/products.component';
+
+
+
 
 import { OverlayModule } from '@angular/cdk/overlay';
 import { CdkMenuModule } from '@angular/cdk/menu';
 import { FormsModule } from '@angular/forms';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { ListClientsComponent } from './clients/list-clients/list-clients.component';
-import { AddClientComponent } from './clients/add-client/add-client.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatTableModule} from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatTabsModule} from '@angular/material/tabs';
+import { MatListModule } from '@angular/material/list';
+import { MatSortModule } from '@angular/material/sort';
 
 
 
@@ -47,6 +55,7 @@ import {MatTableModule} from '@angular/material/table';
     StatisticsComponent,
     SettingsComponent,
     SublevelMenuComponent,
+    ProductsComponent,
     ClientsComponent,
     OrdersComponent,
     InvoicesComponent,
@@ -69,6 +78,10 @@ import {MatTableModule} from '@angular/material/table';
     MatButtonModule,
     MatDividerModule,
     MatTableModule,
+    MatTabsModule,
+    MatListModule,
+    MatPaginatorModule,
+    MatSortModule,
 
   ],
   providers: [

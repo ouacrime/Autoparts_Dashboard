@@ -4,7 +4,7 @@ import { Observable, of } from "rxjs";
 import { Client } from "../model/client.model";
 import { inject } from "@angular/core";
 
-export const clientResolver: ResolveFn<Client> = 
+export const clientResolver: ResolveFn<any> = 
     (route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot,
         clientService: ClientService = inject(ClientService)): Observable<Client> => {

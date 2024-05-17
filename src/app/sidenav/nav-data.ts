@@ -10,22 +10,22 @@ export const navbarData: INavbarData[] = [
         routeLink: 'clients',
         icon: 'fal fa-users',
         label: 'Clients',
-        items: [
-            {
+        /* items: [
+           {
                 routeLink: 'clients/list-clients',
                 label: 'Clients',
-            },
+           },
             {
                 routeLink: 'clients/add-client',
                 label: 'New Client',
             }
-        ]
+        ] */
     },
     {
         routeLink: 'products',
         icon: 'fal fa-box-open',
         label: 'Products',
-        items: [
+        /* items: [
             {
                 routeLink: 'products/list-products',
                 label: 'List Products',
@@ -34,7 +34,7 @@ export const navbarData: INavbarData[] = [
                 routeLink: 'products/stock-products',
                 label: 'Stock Management',
             }
-        ]
+        ] */
     },
     {
         routeLink: 'orders',
