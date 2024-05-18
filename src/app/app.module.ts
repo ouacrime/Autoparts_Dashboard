@@ -24,7 +24,6 @@ import { ProductsComponent } from './products/products.component';
 
 
 
-
 import { OverlayModule } from '@angular/cdk/overlay';
 import { CdkMenuModule } from '@angular/cdk/menu';
 import { FormsModule } from '@angular/forms';
@@ -39,6 +38,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatTabsModule} from '@angular/material/tabs';
 import { MatListModule } from '@angular/material/list';
 import { MatSortModule } from '@angular/material/sort';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatSelectModule} from '@angular/material/select';
+import { CategoryService } from './service/category.service';
+
 
 
 
@@ -62,7 +65,7 @@ import { MatSortModule } from '@angular/material/sort';
     SuppliersComponent,
     HeaderComponent,
     ListClientsComponent,
-    AddClientComponent
+    AddClientComponent,
   ],
   imports: [
     BrowserModule,
@@ -82,6 +85,8 @@ import { MatSortModule } from '@angular/material/sort';
     MatListModule,
     MatPaginatorModule,
     MatSortModule,
+    MatDialogModule,
+    MatSelectModule,
 
   ],
   providers: [
