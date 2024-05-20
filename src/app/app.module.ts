@@ -21,6 +21,8 @@ import { HeaderComponent } from './header/header.component';
 import { ListClientsComponent } from './clients/list-clients/list-clients.component';
 import { AddClientComponent } from './clients/add-client/add-client.component';
 import { ProductsComponent } from './products/products.component';
+import { CategoryService } from './service/category.service';
+
 
 
 
@@ -40,7 +42,18 @@ import { MatListModule } from '@angular/material/list';
 import { MatSortModule } from '@angular/material/sort';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSelectModule} from '@angular/material/select';
-import { CategoryService } from './service/category.service';
+import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatSliderModule} from '@angular/material/slider';
+import {MatStepperModule} from '@angular/material/stepper';
+import { ReactiveFormsModule } from '@angular/forms';
+
+
+
+
+
 
 
 
@@ -87,6 +100,14 @@ import { CategoryService } from './service/category.service';
     MatSortModule,
     MatDialogModule,
     MatSelectModule,
+    MatCardModule,
+    MatGridListModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatSliderModule,
+    MatStepperModule,
+    ReactiveFormsModule,
+
 
   ],
   providers: [
