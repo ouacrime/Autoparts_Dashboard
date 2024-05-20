@@ -74,7 +74,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* add a subtle shadow effect */
 }
 
-.bg-warning h4 {
+.bg-warning h4 mat-button {
   color: #ffffff; /* make the text color white */
   font-weight: bold; /* make the text bold */
   margin-bottom: 10px; /* add some margin bottom for better layout */
@@ -145,3 +145,4 @@
 .btn-outline-primary,.btn-outline-danger {
   margin-left: 10px;
 }
+
