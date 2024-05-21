@@ -6,6 +6,10 @@ import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MyErrorStateMatcher } from '../Exception/MyErrorStateMatcher';
 import { MatStepper } from '@angular/material/stepper';
+import { TaskComponent } from './task/task.component';
+import { MatDialog } from '@angular/material/dialog';
+import { TaskService } from '../service/task.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-dashboard',
@@ -18,6 +22,11 @@ export class DashboardComponent implements OnInit {
   taskArr: Tasks[] = [];
   addTaskValue: string = "";
   editTaskValue: string = "";
+  taskArre: Tasks[] = [];
+
+
+
+
 
   choseTask: FormGroup;
   choseClient: FormGroup;
@@ -27,7 +36,8 @@ export class DashboardComponent implements OnInit {
 
   @ViewChild('stepper') stepper!: MatStepper;
 
-  constructor(private crudService: CrudService, private _formBuilder: FormBuilder) {
+  constructor(private crudService: CrudService,private taskService: TaskService, private _formBuilder: FormBuilder,public dialog: MatDialog,
+    ) {
     this.choseTask = this._formBuilder.group({
       selected: ['', [Validators.required, Validators.pattern('^(credit|note)$')]],
       client: [''] // Add client control here
@@ -40,12 +50,37 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+
+  openDialog(
+    enterAnimationDuration: string,
+    exitAnimationDuration: string
+  ): void {
+    this.dialog.open(TaskComponent, {
+      width: '500px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
+  }
+
+  getTasksList(): void {
+    this.taskService.getAllTasks().subscribe({
+      next: (res: Tasks[]) => {
+        this.taskArre = res;
+      },
+      error: (e: HttpErrorResponse) => {
+        console.error(e);
+      },
+    });
+  }
+
+
   ngOnInit() {
     this.editTaskValue = "";
     this.addTaskValue = "";
     this.taskObj = new Tasks();
     this.taskArr = [];
     this.getAllTasks();
+    this.getTasksList();
 
     this.choseTask.get('selected')?.valueChanges.subscribe(value => {
       if (value === 'note' && this.choseTask.get('selected')?.valid) {
@@ -89,14 +124,7 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  editTask() {
-    this.taskObj.task_name = this.editTaskValue;
-    this.crudService.editTask(this.taskObj).subscribe(res => {
-      this.ngOnInit();
-    }, err => {
-      alert("failed to edit the task");
-    });
-  }
+  
 
   deleteTask(etask: Tasks) {
     this.crudService.deletTask(etask).subscribe(res => {
@@ -135,4 +163,15 @@ export class DashboardComponent implements OnInit {
     this.formCompleted = false;
     this.stepper.reset();
   }
+
+  
+ 
+  
 }
+
+
+
+
+
+
+

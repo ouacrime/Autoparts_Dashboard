@@ -90,7 +90,7 @@
             <mat-step [stepControl]="choseTask">
               <form [formGroup]="choseTask">
                 <ng-template matStepLabel>Select your option</ng-template>
-                <mat-form-field >
+                <mat-form-field>
                   <mat-label>Memo</mat-label>
                   <mat-select
                     formControlName="selected"
@@ -107,7 +107,8 @@
                         choseTask.get('selected')?.touched)
                     "
                   >
-                    <span *ngIf="choseTask.get('selected')?.hasError('required')"
+                    <span
+                      *ngIf="choseTask.get('selected')?.hasError('required')"
                       >You must make a selection</span
                     >
                     <span
@@ -118,37 +119,42 @@
                       >Your selection is invalid</span
                     >
                   </mat-error>
-                </mat-form-field >
+                </mat-form-field>
                 <div>
                   <button mat-button matStepperNext>Next</button>
                 </div>
               </form>
             </mat-step>
 
-            <mat-step [stepControl]="choseTask" *ngIf="choseTask.get('selected')?.value === 'credit'">
+            <mat-step
+              [stepControl]="choseTask"
+              *ngIf="choseTask.get('selected')?.value === 'credit'"
+            >
               <form [formGroup]="choseTask">
                 <ng-template matStepLabel>Select your client</ng-template>
                 <div>
-                  <mat-form-field >
+                  <mat-form-field>
                     <mat-label>Client</mat-label>
                     <mat-select formControlName="client">
-                      <mat-option *ngFor="let client of clients" [value]="client">{{
-                        client
-                      }}</mat-option>
+                      <mat-option
+                        *ngFor="let client of clients"
+                        [value]="client"
+                        >{{ client }}</mat-option
+                      >
                     </mat-select>
                   </mat-form-field>
                   <div>
                     <button mat-button matStepperPrevious>Back</button>
                     <button mat-button matStepperNext>Next</button>
-                  </div>  
+                  </div>
                 </div>
               </form>
             </mat-step>
-      
+
             <mat-step [stepControl]="FormNotes">
               <form [formGroup]="FormNotes">
                 <ng-template matStepLabel>Fill out your Note</ng-template>
-                <mat-form-field >
+                <mat-form-field>
                   <input
                     matInput
                     placeholder="Note"
@@ -157,11 +163,13 @@
                     name="Task"
                     [(ngModel)]="addTaskValue"
                   />
-                </mat-form-field>              
-      
+                </mat-form-field>
+
                 <div>
-                  <button mat-button  matStepperPrevious >Back</button>
-                  <button mat-button (click)="addTask()" matStepperNext >Done</button>
+                  <button mat-button matStepperPrevious>Back</button>
+                  <button mat-button (click)="addTask()" matStepperNext>
+                    Done
+                  </button>
                 </div>
               </form>
             </mat-step>
@@ -175,71 +183,39 @@
             </mat-step>
           </mat-stepper>
         </div>
-        <h4 class="task-title mt-4">Tasks :</h4>
-        <div class="task-list">
-          <div class="task-item">
-            <div class="task-content" *ngFor="let task of taskArr" id="tasks">
-              <div class="task-text">{{ task.task_name }}</div>
+
+        <mat-card class="task" *ngFor="let task of taskArre" id="tasks">
+          <mat-card-content class="content">
+            <span>{{ task.task }}</span>
+            <div class="button-container">
               <button
-                class="btn btn-outline-primary"
-                data-bs-toggle="modal"
+                mat-icon-button
+                color="primary"
+                aria-label="Update task"
                 type="button"
-                data-bs-target="#exampleModal"
+                (click)="openDialog('0ms', '0ms')"
               >
-                e
+                <mat-icon>edit</mat-icon>
               </button>
-              <div class="btn btn-outline-danger" (click)="deleteTask(task)">
-                X
-              </div>
+              <button
+                mat-icon-button
+                color="warn"
+                aria-label="Delete task"
+                (click)="deleteTask(task)"
+              >
+                <mat-icon>delete</mat-icon>
+              </button>
             </div>
-          </div>
-        </div>
+          </mat-card-content>
+        </mat-card>
+
+
+
+
+
       </div>
     </div>
 
     <div class="example-input-wrapper"></div>
-    
-
-  </div>
-
-  <div
-    class="modal fade"
-    id="exampleModal"
-    tabindex="-1"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Edit Task</h5>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div class="modal-body">
-          <div class="input-group p-4">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Enter task "
-              name="task"
-              [(ngModel)]="editTaskValue"
-            />
-            <button
-              class="btn btn-outline-success"
-              type="button"
-              data-bs-dismiss="modal"
-              (click)="editTask()"
-            >
-              Update
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
