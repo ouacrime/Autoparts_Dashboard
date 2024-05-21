@@ -21,6 +21,7 @@ import { HeaderComponent } from './header/header.component';
 import { ListClientsComponent } from './clients/list-clients/list-clients.component';
 import { AddClientComponent } from './clients/add-client/add-client.component';
 import { ProductsComponent } from './products/products.component';
+import { TaskComponent } from './dashboard/task/task.component';
 import { CategoryService } from './service/category.service';
 
 
@@ -79,6 +80,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     HeaderComponent,
     ListClientsComponent,
     AddClientComponent,
+    TaskComponent,
   ],
   imports: [
     BrowserModule,

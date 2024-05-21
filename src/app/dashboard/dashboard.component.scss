@@ -67,82 +67,16 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* add a subtle shadow effect */
 }
 
-.bg-warning {
-  background: linear-gradient(to right, #373b44, #4286f4) !important;    /* warning background color */
-  padding: 10px; /* add some padding for better layout */
-  border-radius: 10px; /* add a rounded corner effect */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* add a subtle shadow effect */
+.task{
+  margin: 5px 0px;
 }
-
-.bg-warning h4 mat-button {
-  color: #ffffff; /* make the text color white */
-  font-weight: bold; /* make the text bold */
-  margin-bottom: 10px; /* add some margin bottom for better layout */
-  text-align: center;
-}
-
-.shadow {
-  box-shadow: 2px 2px 20px 23px #7fecad; /* create a shadow effect */
-  padding: 10px; /* add some padding for better layout */
-  border-radius: 10px; /* add a rounded corner effect */
-}
-
-.input-group {
-  width: 100%; /* make the input group full width */
-  margin-bottom: 20px; /* add some margin bottom for better layout */
-}
-
-.form-control {
-  padding: 10px; /* add some padding for better layout */
-  border: 1px solid #ced4da; /* add a border to the input field */
-}
-
-.btn-outline-success {
-  background: linear-gradient(to right, #0a504a, #38ef7d) !important;    /* set the background color of the button */
-  color: #ffffff; /* set the text color of the button */
-  border: none; /* remove the border of the button */
-  border-radius: 10px; /* add a rounded corner effect to the button */
-  padding: 10px 20px; /* add some padding to the button */
-  cursor: pointer; /* change the cursor to a pointer on hover */
-}
-
-.btn-outline-success:hover {
-  background-color: #1e7e34; /* change the background color on hover */
-}
-
-.task-title {
-  font-weight: bold;
-  color: #337ab7;
-  margin-top: 20px;
-}
-
-.task-list {
-  overflow-y: auto;
-  height: 350px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.task-item {
-  margin-bottom: 10px;
-  padding: 10px;
-}
-
-.task-content {
+.content {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  margin-bottom: 5px;
 }
 
-.task-text {
-  flex-grow: 1;
-  font-size: 16px;
-  color: #333;
+.button-container {
+  display: flex;
+  gap: 8px; /* Adjust the space between buttons */
 }
-
-.btn-outline-primary,.btn-outline-danger {
-  margin-left: 10px;
-}
-
