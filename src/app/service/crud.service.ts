@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Tasks } from '../model/task';
+import { Task } from '../model/task';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -14,20 +14,20 @@ export class CrudService {
     this.serviceURL = "http://localhost:3000/Tasks"
    }
 
-   addTask(task : Tasks) : Observable<Tasks>{
-    return this.http.post<Tasks>(this.serviceURL, task);
+   addTask(task : Task) : Observable<Task>{
+    return this.http.post<Task>(this.serviceURL, task);
    }
 
-   getAllTasks() : Observable<Tasks[]>{
-    return this.http.get<Tasks[]>(this.serviceURL);
+   getAllTasks() : Observable<Task[]>{
+    return this.http.get<Task[]>(this.serviceURL);
    }
 
-   deletTask(task : Tasks) : Observable<Tasks>{
-    return this.http.delete<Tasks>(this.serviceURL+'/'+task.id);
+   deletTask(task : Task) : Observable<Task>{
+    return this.http.delete<Task>(this.serviceURL+'/'+task.id);
    }
 
-   editTask(task : Tasks) : Observable<Tasks>{
-    return this.http.put<Tasks>(this.serviceURL+'/'+task.id, task);
+   editTask(task : Task) : Observable<Task>{
+    return this.http.put<Task>(this.serviceURL+'/'+task.id, task);
    }
    
 

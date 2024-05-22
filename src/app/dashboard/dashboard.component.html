@@ -127,10 +127,10 @@
             </mat-step>
 
             <mat-step
-              [stepControl]="choseTask"
+              [stepControl]="choseClient"
               *ngIf="choseTask.get('selected')?.value === 'credit'"
             >
-              <form [formGroup]="choseTask">
+              <form [formGroup]="choseClient">
                 <ng-template matStepLabel>Select your client</ng-template>
                 <div>
                   <mat-form-field>
@@ -138,8 +138,8 @@
                     <mat-select formControlName="client">
                       <mat-option
                         *ngFor="let client of clients"
-                        [value]="client"
-                        >{{ client }}</mat-option
+                        [value]="client.id"
+                        >{{ client.lastName }}</mat-option
                       >
                     </mat-select>
                   </mat-form-field>
@@ -161,13 +161,17 @@
                     formControlName="note"
                     required
                     name="Task"
-                    [(ngModel)]="addTaskValue"
                   />
                 </mat-form-field>
 
                 <div>
                   <button mat-button matStepperPrevious>Back</button>
-                  <button mat-button (click)="addTask()" matStepperNext>
+                  <button
+                    mat-button
+                    (click)="addTask()"
+                    matStepperNext
+                    [disabled]="!FormNotes.controls['note'].value"
+                  >
                     Done
                   </button>
                 </div>
@@ -184,16 +188,17 @@
           </mat-stepper>
         </div>
 
-        <mat-card class="task" *ngFor="let task of taskArre" id="tasks">
+        <mat-card class="task" *ngFor="let task of taskArr" id="tasks">
           <mat-card-content class="content">
-            <span>{{ task.task }}</span>
+            <mat-card-title>{{ task.task }}</mat-card-title>
+            <mat-card-subtitle class="small-subtitle" *ngIf="clients && clients.length">{{ getClientName(task.clientId) }}</mat-card-subtitle>
             <div class="button-container">
               <button
                 mat-icon-button
                 color="primary"
                 aria-label="Update task"
                 type="button"
-                (click)="openDialog('0ms', '0ms')"
+                (click)="openDialog(task.id)"
               >
                 <mat-icon>edit</mat-icon>
               </button>
@@ -208,14 +213,7 @@
             </div>
           </mat-card-content>
         </mat-card>
-
-
-
-
-
       </div>
     </div>
-
-    <div class="example-input-wrapper"></div>
   </div>
 </div>

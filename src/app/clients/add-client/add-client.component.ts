@@ -18,6 +18,7 @@ export class AddClientComponent implements OnInit {
     address: '',
     username: '',
     phoneNumber: '',
+    id: 0
   };
 
   constructor(private clientService: ClientService, 
