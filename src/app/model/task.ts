@@ -1,7 +1,6 @@
-export class Tasks {
+export class Task {
     id: number= 0;
-    task_name : string = '';
     task:string = '';
     clientId=0;
-
+    dateUpdated:Date = new Date();
 }

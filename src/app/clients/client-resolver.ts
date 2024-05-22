@@ -24,7 +24,8 @@ export const clientResolver: ResolveFn<any> =
                     address: '',
                     username: '',
                     phoneNumber: '',
-                  };
+                    id: 0
+                };
 
                 return of(client);
 

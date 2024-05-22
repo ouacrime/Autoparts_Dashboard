@@ -16,7 +16,6 @@ export class ClientService {
   public saveClient(client: Client): Observable<Client>
   {
     return this.httpclient.post<Client>(this.api, client);
-
   }
   
 

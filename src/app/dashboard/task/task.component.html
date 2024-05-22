@@ -1,19 +1,23 @@
-<h1 mat-dialog-title>Add Category</h1>
+<h1 mat-dialog-title>Update Task</h1>
 <div mat-dialog-content>
   <mat-form-field style="display: block">
-    <mat-label>Name Category</mat-label>
+    <mat-label>Task</mat-label>
     <input matInput [(ngModel)]="editTaskValue" />
   </mat-form-field>
-
-  <mat-form-field style="display: block">
-    <mat-label>Visbility</mat-label>
-    <mat-select>
-      <mat-option value="True">True</mat-option>
-      <mat-option value="Fals">False</mat-option>
-    </mat-select>
-  </mat-form-field>
+  <ng-container *ngIf="taskObj.clientId">
+    <form [formGroup]="choseClient">
+      <mat-form-field style="display: block">
+        <mat-label>Client</mat-label>
+        <mat-select formControlName="client">
+          <mat-option *ngFor="let client of clients" [value]="client.id">
+            {{ client.lastName }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+  </ng-container>
 </div>
 <div mat-dialog-actions style="justify-content: center">
   <button mat-button mat-dialog-close>No</button>
-  <button mat-button mat-dialog-close cdkFocusInitial  (click)="editTask()">Add</button>
+  <button mat-button (click)="editTask()" cdkFocusInitial>Update</button>
 </div>
