@@ -1,0 +1,72 @@
+<form #clientForm="ngForm" class="saveClient">
+  <h1 mat-dialog-title>{{ isUpdateMode ? "Update Client" : "Add Client" }}</h1>
+
+  <div mat-dialog-content>
+    <mat-form-field style="display: block">
+      <mat-label>First name</mat-label>
+      <input
+        matInput
+        placeholder="First name"
+        name="firstName"
+        [(ngModel)]="client.firstName"
+      />
+      <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field style="display: block">
+      <mat-label>Last name</mat-label>
+      <input
+        matInput
+        placeholder="Last name"
+        name="lastName"
+        [(ngModel)]="client.lastName"
+      />
+      <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field style="display: block">
+      <mat-label>Address</mat-label>
+      <input
+        matInput
+        placeholder="Address"
+        name="address"
+        [(ngModel)]="client.address"
+      />
+      <mat-icon matSuffix>apartment</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field style="display: block">
+      <mat-label>Phone Number</mat-label>
+      <input
+        matInput
+        placeholder="Phone Number"
+        name="phoneNumber"
+        [(ngModel)]="client.phoneNumber"
+      />
+      <mat-icon matSuffix>phone_enabled</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field style="display: block">
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        placeholder="Email"
+        name="username"
+        [(ngModel)]="client.username"
+      />
+      <mat-icon matSuffix>mail</mat-icon>
+    </mat-form-field>
+  </div>
+
+  <div mat-dialog-actions style="justify-content: center">
+    <button mat-button mat-dialog-close>No</button>
+    <button
+      mat-button
+      mat-dialog-close
+      cdkFocusInitial
+      (click)="saveOrUpdateClient(clientForm)"
+    >
+      {{ isUpdateMode ? "Update" : "Save" }}
+    </button>
+  </div>
+</form>

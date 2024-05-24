@@ -7,29 +7,28 @@ import { HttpClientModule, provideHttpClient,withFetch} from '@angular/common/ht
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BodyComponent } from './body/body.component';
-import { SidenavComponent } from './sidenav/sidenav.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { StatisticsComponent } from './statistics/statistics.component';
-import { SettingsComponent } from './settings/settings.component';
-import { SublevelMenuComponent } from './sidenav/sublevel-menu.component';
-import { ClientsComponent } from './clients/clients.component';
-import { OrdersComponent } from './orders/orders.component';
-import { InvoicesComponent } from './invoices/invoices.component';
-import { SuppliersComponent } from './suppliers/suppliers.component';
-import { HeaderComponent } from './header/header.component';
-import { ListClientsComponent } from './clients/list-clients/list-clients.component';
-import { AddClientComponent } from './clients/add-client/add-client.component';
-import { ProductsComponent } from './products/products.component';
-import { TaskComponent } from './dashboard/task/task.component';
-import { CategoryService } from './service/category.service';
+import { BodyComponent } from './developments/body/components/body/body.component';
+import { SidenavComponent } from './developments/sidenav/sidenav.component';
+import { DashboardComponent } from './developments/dashboard/components/dashboard/dashboard.component';
+import { StatisticsComponent } from './developments/statistics/statistics.component';
+import { SettingsComponent } from './developments/settings/settings.component';
+import { SublevelMenuComponent } from './developments/sidenav/sublevel-menu.component';
+import { ClientsComponent } from './developments/clients/components/client/client/clients.component';
+import { OrdersComponent } from './developments/orders/components/orders/orders.component';
+import { InvoicesComponent } from './developments/invoices/components/invoice/invoices.component';
+import { SuppliersComponent } from './developments/suppliers/suppliers.component';
+import { HeaderComponent } from './developments/header/components/header/header.component';
+import { AddClientComponent } from './developments/clients/components/client/client/add-clients/add-client.component';
+import { ProductsComponent } from './developments/products/components/products/products.component';
+import { TaskComponent } from './developments/dashboard/components/dashboard/task/task.component';
+import { CategoryService } from './developments/products/services/category.service';
 
 
 
 
 import { OverlayModule } from '@angular/cdk/overlay';
 import { CdkMenuModule } from '@angular/cdk/menu';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
@@ -50,7 +49,8 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatStepperModule} from '@angular/material/stepper';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 
 
@@ -78,7 +78,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     InvoicesComponent,
     SuppliersComponent,
     HeaderComponent,
-    ListClientsComponent,
     AddClientComponent,
     TaskComponent,
   ],
@@ -109,7 +108,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatSliderModule,
     MatStepperModule,
     ReactiveFormsModule,
-
+    MatToolbarModule,
+    MatSidenavModule,
 
   ],
   providers: [
