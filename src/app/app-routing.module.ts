@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { StatisticsComponent } from './statistics/statistics.component';
-import { SettingsComponent } from './settings/settings.component';
-import { OrdersComponent } from './orders/orders.component';
-import { InvoicesComponent } from './invoices/invoices.component';
-import { SuppliersComponent } from './suppliers/suppliers.component';
-import { ClientsComponent } from './clients/clients.component';
-import { ProductsComponent } from './products/products.component';
+import { DashboardComponent } from './developments/dashboard/components/dashboard/dashboard.component';
+import { StatisticsComponent } from './developments/statistics/statistics.component';
+import { SettingsComponent } from './developments/settings/settings.component';
+import { OrdersComponent } from './developments/orders/components/orders/orders.component';
+import { InvoicesComponent } from './developments/invoices/components/invoice/invoices.component';
+import { SuppliersComponent } from './developments/suppliers/suppliers.component';
+import { ClientsComponent } from './developments/clients/components/client/client/clients.component';
+import { ProductsComponent } from './developments/products/components/products/products.component';
 
 
 const routes: Routes = [
@@ -17,14 +17,10 @@ const routes: Routes = [
 
   {path: 'clients', component: ClientsComponent},
   {path: 'products', component: ProductsComponent},
-  {
-    path: 'clients',
-    loadChildren: () => import('./clients/clients.module').then(m => m.ClientsModule)  },
-  
   {path: 'statistics', component: StatisticsComponent},
   {
     path: 'coupens',
-    loadChildren: () => import('./coupens/coupens.module').then(m => m.CoupensModule)
+    loadChildren: () => import('./developments/coupens/components/coupen/coupens.module').then(m => m.CoupensModule)
   },
   {path: 'orders', component: OrdersComponent},
   {path: 'settings', component: SettingsComponent},

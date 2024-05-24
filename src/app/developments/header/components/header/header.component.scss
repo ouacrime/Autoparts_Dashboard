@@ -1,0 +1,40 @@
+.head {
+    width: calc(100% - 5rem);
+    margin-left: 5rem;
+    z-index: 1;
+    transition: all .5s ease;
+    background:#ffffff;
+    //background: #f4f7fa;
+    padding: 0rem 1.5rem 0 1.5rem;
+    position: fixed;
+    top: 0;
+}
+
+
+.head-trimmed{
+    width: calc(100% - 16.5652rem);
+    margin-left: 16.5625rem;
+
+}
+.head-md-screen{
+    width: calc(100% - 5rem);
+    margin-left: 5rem;
+
+}
+
+
+.custom-toolbar {
+    height: 48px;
+    border-bottom: 1px solid #ccc; /* Adjust the color and width as needed */
+    display: flex;
+    justify-content: space-between; /* Ensure elements are spaced out properly */
+    align-items: center; /* Center align items vertically */
+  }
+
+  .text-head{
+    font-size: .75rem;
+    line-height: 1rem;
+    flex-shrink: 0;
+    color: #333238;
+    font-weight: 600;
+  }
