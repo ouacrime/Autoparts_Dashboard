@@ -6,8 +6,7 @@ import { SettingsComponent } from './developments/settings/settings.component';
 import { OrdersComponent } from './developments/orders/components/orders/orders.component';
 import { InvoicesComponent } from './developments/invoices/components/invoice/invoices.component';
 import { SuppliersComponent } from './developments/suppliers/suppliers.component';
-import { ClientsComponent } from './developments/clients/components/client/client/clients.component';
-import { ProductsComponent } from './developments/products/components/products/products.component';
+import { ClientsComponent } from './developments/clients/components/client/clients.component';
 
 
 const routes: Routes = [
@@ -16,12 +15,16 @@ const routes: Routes = [
   {path: 'dashboard', component: DashboardComponent},
 
   {path: 'clients', component: ClientsComponent},
-  {path: 'products', component: ProductsComponent},
+  {
+    path: 'products', 
+    loadChildren: () => import('./developments/products/products.module').then(m => m.ProductsModule)
+  },
   {path: 'statistics', component: StatisticsComponent},
   {
     path: 'coupens',
     loadChildren: () => import('./developments/coupens/components/coupen/coupens.module').then(m => m.CoupensModule)
   },
+
   {path: 'orders', component: OrdersComponent},
   {path: 'settings', component: SettingsComponent},
   {path: 'invoices', component: InvoicesComponent},

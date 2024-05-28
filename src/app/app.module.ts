@@ -13,15 +13,13 @@ import { DashboardComponent } from './developments/dashboard/components/dashboar
 import { StatisticsComponent } from './developments/statistics/statistics.component';
 import { SettingsComponent } from './developments/settings/settings.component';
 import { SublevelMenuComponent } from './developments/sidenav/sublevel-menu.component';
-import { ClientsComponent } from './developments/clients/components/client/client/clients.component';
+import { ClientsComponent } from './developments/clients/components/client/clients.component';
 import { OrdersComponent } from './developments/orders/components/orders/orders.component';
 import { InvoicesComponent } from './developments/invoices/components/invoice/invoices.component';
 import { SuppliersComponent } from './developments/suppliers/suppliers.component';
 import { HeaderComponent } from './developments/header/components/header/header.component';
-import { AddClientComponent } from './developments/clients/components/client/client/add-clients/add-client.component';
-import { ProductsComponent } from './developments/products/components/products/products.component';
+import { AddClientComponent } from './developments/clients/components/client/add-clients/add-client.component';
 import { TaskComponent } from './developments/dashboard/components/dashboard/task/task.component';
-import { CategoryService } from './developments/products/services/category.service';
 
 
 
@@ -72,14 +70,14 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     StatisticsComponent,
     SettingsComponent,
     SublevelMenuComponent,
-    ProductsComponent,
-    ClientsComponent,
     OrdersComponent,
     InvoicesComponent,
     SuppliersComponent,
     HeaderComponent,
-    AddClientComponent,
     TaskComponent,
+    ClientsComponent,
+    AddClientComponent,
+
   ],
   imports: [
     BrowserModule,

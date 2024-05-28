@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { ClientService } from '../../../services/client.service';
-import { Client } from '../../../../model/client.model';
+import { ClientService } from '../../services/client.service';
+import { Client } from '../../../model/client.model';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';

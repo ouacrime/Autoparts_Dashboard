@@ -1,0 +1,117 @@
+<div class="container">
+  <form class="form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Favorite food</mat-label>
+      <input matInput placeholder="Ex. Pizza" value="Sushi" />
+    </mat-form-field>
+
+    <mat-form-field floatLabel="always">
+        <mat-label>Amount</mat-label>
+        <input
+          matInput
+          type="number"
+          class="example-right-align"
+          placeholder="0"
+        />
+        <span matTextPrefix>$&nbsp;</span>
+        <span matTextSuffix>.00</span>
+      </mat-form-field>
+
+    <mat-form-field class="description">
+      <mat-label>Leave a comment</mat-label>
+      <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+    </mat-form-field>
+
+
+      <mat-form-field  floatLabel="always">
+        <mat-label>Amount</mat-label>
+        <input
+          matInput
+          type="number"
+          class="example-right-align"
+          placeholder="0"
+        />
+        <span matTextPrefix>$&nbsp;</span>
+        <span matTextSuffix>.00</span>
+      </mat-form-field>
+      
+    
+
+    <mat-form-field class="example-margin example-width quantity">
+      <mat-label>Quantity</mat-label>
+      <input matInput type="number" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Select</mat-label>
+      <mat-select>
+        <mat-option value="one">First option</mat-option>
+        <mat-option value="two">Second option</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div>
+      @if (progress) {
+      <mat-toolbar class="progress-bar ">
+        <mat-progress-bar color="accent" [value]="progress"></mat-progress-bar>
+        <span class="progress">{{ progress }}%</span>
+      </mat-toolbar>
+      }
+
+      <mat-form-field style="width: 83%;">
+        <div>
+          <mat-toolbar>
+            <input matInput [value]="fileName" />
+
+            <button
+              mat-flat-button
+              color="primary"
+              [disabled]="!currentFile"
+              (click)="upload()"
+            >
+              Upload
+            </button>
+          </mat-toolbar>
+
+          <input
+            type="file"
+            id="fileInput"
+            (change)="selectFile($event)"
+            name="fileInput"
+          />
+        </div>
+      </mat-form-field>
+    </div>
+
+    @if (message) {
+    <div class="message">
+      {{ message }}
+    </div>
+    }
+
+    <mat-card class="example-card file">
+      <mat-card-header>
+        <mat-card-title>List of Files</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list role="list">
+          @for (file of fileInfos | async; track file.name) {
+          <mat-list-item role="listitem">
+            <a href="{{ file.url }}">{{ file.name }}</a>
+          </mat-list-item>
+          }
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+
+    <div>
+    <mat-radio-group aria-label="Select an option">
+        <mat-radio-button value="1">Option 1</mat-radio-button>
+        <mat-radio-button value="2">Option 2</mat-radio-button>
+      </mat-radio-group>
+  </div>
+  </form>
+
+  
+
+</div>

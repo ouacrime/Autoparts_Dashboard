@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Product } from '../../model/product.model';
 import { Observable } from 'rxjs';
@@ -24,6 +24,22 @@ export class ProductService {
 
 
 
+  upload(file: File): Observable<HttpEvent<any>> {
+    const formData: FormData = new FormData();
 
+    formData.append('file', file);
 
+    const req = new HttpRequest('POST', `${this.api}/upload`, formData, {
+      reportProgress: true,
+      responseType: 'json'
+    });
+
+    return this.httpclient.request(req);
+  }
+
+  getFiles(): Observable<any> {
+    return this.httpclient.get(`${this.api}/files`);
+  }
 }
+
+

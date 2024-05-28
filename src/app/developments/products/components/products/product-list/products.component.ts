@@ -3,14 +3,16 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
-import { AddCategoryComponent } from '../categorys/add-category.component';
-import { Category } from '../../../model/category.model';
+import { AddCategoryComponent } from '../../categorys/add-category.component';
+import { Category } from '../../../../model/category.model';
 import { Router, ActivatedRoute } from '@angular/router';
-import { CategoryService } from '../../services/category.service';
-import { ProductService } from '../../services/product.service';
+import { CategoryService } from '../../../services/category.service';
+import { ProductService } from '../../../services/product.service';
 
 import { HttpErrorResponse } from '@angular/common/http';
-import { Product } from '../../../model/product.model';
+import { Product } from '../../../../model/product.model';
+
+
 
 @Component({
   selector: 'app-products',

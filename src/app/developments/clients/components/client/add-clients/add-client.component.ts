@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { ClientService } from '../../../../services/client.service';
+import { ClientService } from '../../../services/client.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Client } from '../../../../../model/client.model';
+import { Client } from '../../../../model/client.model';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
